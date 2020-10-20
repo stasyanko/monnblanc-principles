@@ -1,5 +1,12 @@
 # MONBLANC principles for OOP
 
+The purposes of MONBLANC principles are:
+- be simple to understand
+- be precise and straightforward
+- help to write maintainable OOP code
+
+MONBLANC principles are:
+
 **M** - [messaging](#messaging)
 
 **O** - [object immutability](#object-immutability)
