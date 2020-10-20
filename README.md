@@ -1,5 +1,16 @@
 # MONBLANC principles for OOP
 
+Modern OOP is actually not what it was meant to be. Let's call it "mainstream OOP". There are lots of problems in that. The main of them are:
+- getters/setters (it breaks encapsulation very hard)
+- static methods
+- mutable objects
+
+You will see later why these are problems. 
+To understand what OOP is, let's define what an object is.
+Let's ask Alan Kay, one of the founders of OOP, what an object is:
+> I thought of objects being like biological cells and/or individual computers on a network, only able to communicate with messages
+So, the central idea of OOP is messaging.
+
 The purposes of MONBLANC principles are:
 - be simple to understand
 - be precise and straightforward
@@ -41,7 +52,7 @@ Nope. You just notify the HR department on that and only this departmant has "wr
 
 All objects must be immutable. Almost every real life object is immutable. Programmers model real life objects with code. The main idea of OOP is - build an object in its constructor and use it. We can not change theinternal organization of any real life object. Once a car was produced in a car fcatory, we can not change its producer, engine, body, color while we drive it.
 When an HR manager in your company changes your marital status in your personal card, he/she doesn't cross out text with your marital status, in fact an HR creates a new personal card with new data. 
-That's why, getters/setters approach is a hard antipattern, though it is widely used today. 
+That's why, getters/setters approach is a hard antipattern, though it is widely used today. Getters/setters allow you to mutate an object's state without an object itself knowing anything about that.
 
 ## No null
 
