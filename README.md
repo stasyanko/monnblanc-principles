@@ -1,17 +1,33 @@
 # MONBLANC principles for OOP
 
-**M** - messaging
+**M** - [messaging](#messaging)
 
-**O** - object immutability
+**O** - [object immutability](#object-immutability)
 
-**N** - no null
+**N** - [no null](#no-null)
 
-**B** - black box object
+**B** - [black box object](#black-box-object)
 
-**L** - limited services
+**L** - [limited services](#limited-services)
 
-**A** - abstract dependencies
+**A** - [abstract dependencies](#abstract-dependencies)
 
-**N** - no static methods
+**N** - [no static methods](#no-static-methods)
 
-**C** - composition only
+**C** - [composition only](#composition-only)
+
+## Messaging
+
+## Object immutability
+
+## No null
+
+## Black box object
+
+## Limited services
+
+## Abstract dependencies
+
+## No static methods
+
+## Composition only
