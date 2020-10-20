@@ -26,7 +26,9 @@ Imagine, that you work in a company's accounting department. You got married rec
 How do you do it? You go to a room with a filing cabinet and change your marital status yourself?
 Nope. You just notify the HR department on that and only this departmant has "write" access to a filing cabinet with your personal card.
 
-![](/assets/filing-cabinet.png)
+<p align="center">
+  <img src="/assets/filing-cabinet.png" width="256" title="Filing cabinet">
+</p>
 
 ## Object immutability
 
