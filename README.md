@@ -83,7 +83,7 @@ He goes to a room with a filing cabinet and changes his marital status on his ow
 
 Nope. 
 
-He just notifies the HR department on that and only this departmant has "write" access to a filing cabinet with your personal card.
+He just notifies the HR department on that and only this departmant has "write" access to a filing cabinet with his personal card.
 
 <p align="center">
   <img src="/assets/filing-cabinet.png" width="256" title="Filing cabinet">
