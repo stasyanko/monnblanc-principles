@@ -54,8 +54,16 @@ Nope. You just notify the HR department on that and only this departmant has "wr
 
 ## Object immutability
 
-All objects must be immutable. Almost every real life object is immutable. Programmers model real life objects with code. The main idea of OOP is - build an object in its constructor and use it. We can not change theinternal organization of any real life object. Once a car was produced in a car fcatory, we can not change its producer, engine, body, color while we drive it.
+All objects must be immutable. Almost every real life object is immutable. 
+
+Programmers model real life objects with code. 
+
+The main idea of OOP is - build an object in its constructor and use it. 
+
+We can not change theinternal organization of any real life object. Once a car was produced in a car fcatory, we can not change its producer, engine, body, color while we drive it.
+
 When an HR manager in your company changes your marital status in your personal card, he/she doesn't cross out text with your marital status, in fact an HR creates a new personal card with new data. 
+
 That's why, getters/setters approach is a hard antipattern, though it is widely used today. Getters/setters allow you to mutate an object's state without an object itself knowing anything about that.
 
 ## No null
