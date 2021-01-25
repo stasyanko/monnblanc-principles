@@ -45,7 +45,9 @@ The purposes of MONBLANC principles are:
 
 Objects must be like small computers that talk to each other via messaging.
 
-Imagine, that you work in a company's accounting department. You got married recently and you need to change your data in your personal card of a worker. 
+Imagine, that you work in a company's accounting department. 
+
+You got married recently and you need to change your data in your personal card of a worker. 
 
 This personal card is stored in an HR (human resources) department. 
 
