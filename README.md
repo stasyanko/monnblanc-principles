@@ -44,8 +44,13 @@ The purposes of MONBLANC principles are:
 > ~ Alan Kay
 
 Objects must be like small computers that talk to each other via messaging.
-Imagine, that you work in a company's accounting department. You got married recently and you need to change your data in your personal card of a worker. This personal card is stored in an HR (human resources) department. 
+
+Imagine, that you work in a company's accounting department. You got married recently and you need to change your data in your personal card of a worker. 
+
+This personal card is stored in an HR (human resources) department. 
+
 How do you do it? You go to a room with a filing cabinet and change your marital status yourself?
+
 Nope. You just notify the HR department on that and only this departmant has "write" access to a filing cabinet with your personal card.
 
 <p align="center">
@@ -64,7 +69,9 @@ We can not change theinternal organization of any real life object. Once a car w
 
 When an HR manager in your company changes your marital status in your personal card, he/she doesn't cross out text with your marital status, in fact an HR creates a new personal card with new data. 
 
-That's why, getters/setters approach is a hard antipattern, though it is widely used today. Getters/setters allow you to mutate an object's state without an object itself knowing anything about that.
+That's why, getters/setters approach is a hard antipattern, though it is widely used today. 
+
+Getters/setters allow you to mutate an object's state without an object itself knowing anything about that.
 
 ## No null
 
