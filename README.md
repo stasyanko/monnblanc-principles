@@ -203,6 +203,25 @@ Yeah, the method updateWorkerDataInDatabse() updates a worker's data too.
 
 But other objects will know too much about how this work in HR object and it can hardly be called behavior as every object that calls updateWorkerDataInDatabse() must know databasePassword.
 
+**One more example:** you wanna order a pizza.
+
+You call a local pizzeria.
+
+What do you need to do to get a pizza?
+
+You need to pass a message to a pizzeria: 
+
+"I want one pizza with tomatoes and cheese"
+
+That's it.
+
+You don't tell the pizzeria where they should buy products, how long to cook it, how to hire cooks.
+
+You just send a message: "I want a pizza"
+
+And the supposed behavior of the pizzeria is to cook a pizza.
+
+
 ## Object immutability
 
 All objects must be immutable. Almost every real life object is immutable. 
