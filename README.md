@@ -25,9 +25,9 @@ The second definition is by Uncle Bob Martin:
 
 ***So let's conclude what objects should be:***
 
-- something like biological cells and/or individual computers
-- they have behavior
-- they have no visible data
+- objects are like biological cells and/or individual computers
+- objects have behavior
+- objects have no visible data
 
 The purposes of MONBLANC principles are:
 - be simple to understand
