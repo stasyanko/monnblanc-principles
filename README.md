@@ -62,7 +62,9 @@ That's why, getters/setters approach is a hard antipattern, though it is widely 
 > ~ [Uncle Bob Martin](https://twitter.com/unclebobmartin/status/1107740352516157441)
 
 What are getters and setters for every property of an object?
+
 Yeah, you are right - it is making our data visible to anyone!
+
 Having a getter and a setter for every property is actually turning our object into a data structure!
 
 ## Limited services
