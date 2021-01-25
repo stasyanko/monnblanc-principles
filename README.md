@@ -39,9 +39,10 @@ The second definition is by Uncle Bob Martin:
 - objects have no visible data
 
 The purposes of MONBLANC principles are:
-- be simple to understand
-- be precise and straightforward
-- help to write maintainable OOP code
+- to be simple to understand
+- to be precise and straightforward
+- to be beginner friendly
+- to help to write maintainable OOP code
 
 **Disclaimer**
 
