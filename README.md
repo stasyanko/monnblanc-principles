@@ -99,6 +99,86 @@ He just notifies the HR department on that and only this departmant has "write" 
   <img src="/assets/filing-cabinet.png" width="256" title="Filing cabinet">
 </p>
 
+This is the code for our worker's card:
+
+```
+class WorkerCard {
+    private name: string;
+    private secondName: string;
+    private age: integer;
+    private isMarried: boolean;
+
+    constructor(
+        name: string,
+        secondName: string,
+        age: integer,
+        isMarried: boolean
+    ) {
+        this.name = name;
+        this.secondName = secondName;
+        this.age = age;
+        this.isMarried = isMarried;
+    }
+
+    public function name(): string {
+        return this.name;
+    }
+
+    public function secondName(): string {
+        return this.secondName;
+    }
+
+    public function age(): integer {
+        return this.age;
+    }
+
+    public function isMarried(): boolean {
+        return this.isMarried;
+    }
+}
+```
+
+This is how we send a message about Alan's marital status to the HR department of Jsweety company:
+
+```
+// the fourth parameter here is a marital status
+$workerData = new WorkerCard('Alan', 'May', 41, true);
+
+$hr = new HR();
+$hr.updateWorkerData($workerData);
+```
+
+Calling a method updateWorkerData() of HR object is actually passing a message.
+
+We see that the HR object has its unique behavior - it accepts a message of WorkerCard type and does something under the hood.
+
+Moreover, it is good if updateWorkerData() method could notify other objects that it updated worker data by emitting an event 'workerDataUpdated'.
+
+It may be done like this:
+
+```
+class HR {
+    // here some props of the class we don't care about now
+    
+    public function updateWorkerData(WorkerData $workerData): boolean {
+        // here we update a worker's data, e.g. updating it in a database
+        // ...
+        
+        // eventBus is a class injected in HR's constructor
+        // which is able to notify other objects on some events
+        this.eventBus.emit('workerDataUpdated', $workerData);
+    }
+}
+```
+
+So let's sum up:
+
+- objects should communicate with each other by sending messages to each other
+- in terms of modern OOP languages sending messages may mean two things:
+  - calling a method of an object
+  - sending an event if something happens (like in the example above with 'workerDataUpdated' event)
+- the purpose of sending a message to another object is to get some service from that object (even calling a method name() of a WorkerCard object is actually sending a message to the WorkerCard object to get a service from this)
+
 ## Object immutability
 
 All objects must be immutable. Almost every real life object is immutable. 
