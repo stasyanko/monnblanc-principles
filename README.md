@@ -21,7 +21,7 @@ So, the central idea of OOP is messaging.
 The second definition is by Uncle Bob Martin:
 
 > “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
-> ~ [Uncle Bob Martin](https://twitter.com/unclebobmartin/status/1107740352516157441)
+> ~ <a href="https://twitter.com/unclebobmartin/status/1107740352516157441" rel="nofollow" target="_blank">Uncle Bob Martin</a>
 
 ***So let's conclude what objects should be:***
 
