@@ -73,17 +73,17 @@ Objects must be like small computers that talk to each other via messaging.
 
 Imagine, that you work in a company's accounting department. 
 
-You got married recently and you need to change your data in your personal card of a worker. 
+Alan got married recently and he needs to change data in his personal card of a worker. 
 
 This personal card is stored in an HR (human resources) department. 
 
-How do you do it? 
+How does he do it? 
 
-You go to a room with a filing cabinet and change your marital status yourself?
+He goes to a room with a filing cabinet and changes his marital status on his own?
 
 Nope. 
 
-You just notify the HR department on that and only this departmant has "write" access to a filing cabinet with your personal card.
+He just notifies the HR department on that and only this departmant has "write" access to a filing cabinet with your personal card.
 
 <p align="center">
   <img src="/assets/filing-cabinet.png" width="256" title="Filing cabinet">
