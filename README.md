@@ -20,6 +20,14 @@ The purposes of MONBLANC principles are:
 
 *All examples are written in pseudo language that is understandable to most programmers who know Java, Python, PHP, Javascript and most modern OOP languages.*
 
+*The proncipls are explained as a story of a worker Alan from Jsweety factory.*
+
+*He is a financist in the financial department.*
+
+*Jsweety produces candies and chocolate.*
+
+*We will automate the business processes of Jsweety factory using MONBLANC principles.*
+
 **MONBLANC principles are:**
 
 **M** - [messaging](#messaging)
@@ -84,6 +92,12 @@ Getters/setters allow you to mutate an object's state without an object itself k
 ## No null
 
 ## Black box object
+
+Let's get back to our company and the way its departments communicate.
+
+In fact, every department in a company is a black box.
+
+
 
 > “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
 > ~ [Uncle Bob Martin](https://twitter.com/unclebobmartin/status/1107740352516157441)
