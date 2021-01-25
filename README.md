@@ -34,7 +34,7 @@ The second definition is by Uncle Bob Martin:
 
 ***So let's conclude what objects should be:***
 
-- objects are like biological cells and/or individual computers
+- objects are similar to biological cells and/or individual computers
 - objects have behavior
 - objects have no visible data
 
