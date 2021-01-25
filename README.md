@@ -179,6 +179,30 @@ So let's sum up:
   - sending an event if something happens (like in the example above with 'workerDataUpdated' event)
 - the purpose of sending a message to another object is to get some service from that object (even calling a method name() of a WorkerCard object is actually sending a message to the WorkerCard object to get a service from this)
 
+You can say: "I already call methods of different objects in my code so why should I care?"
+
+But the main point here is that every object should provide only services it is supposed to.
+
+We can hardly say that we send a message to HR object if this object has public data that can be changed by any other object without HR conrolling this process.
+
+This situation can not be called 'message passing':
+
+```
+class HR {
+    public workerRepository: WorkerRepository;
+    
+    // here some props of the class we don't care about now
+    
+    public function updateWorkerDataInDatabse(WorkerData $workerData, $databasePassword: string): boolean {
+        this.workerRepository.updateWorkerData($workerData);
+    }
+}
+```
+
+Yeah, the method updateWorkerDataInDatabse() updates a worker's data too.
+
+But other objects will know too much about how this work in HR object and it can hardly be called behavior as every object that calls updateWorkerDataInDatabse() must know databasePassword.
+
 ## Object immutability
 
 All objects must be immutable. Almost every real life object is immutable. 
