@@ -58,6 +58,9 @@ That's why, getters/setters approach is a hard antipattern, though it is widely 
 
 ## Black box object
 
+> “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
+> ~ [Uncle Bob Martin](https://twitter.com/unclebobmartin/status/1107740352516157441)
+
 ## Limited services
 
 ## Abstract dependencies
