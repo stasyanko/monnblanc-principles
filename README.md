@@ -20,7 +20,7 @@ The purposes of MONBLANC principles are:
 
 *All examples are written in pseudo language that is understandable to most programmers who know Java, Python, PHP, Javascript and most modern OOP languages.*
 
-*The proncipls are explained as a story of a worker Alan from Jsweety factory.*
+*The pronciples are explained as a story of a worker Alan from Jsweety factory.*
 
 *He is a financist in the financial department.*
 
