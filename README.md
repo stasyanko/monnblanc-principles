@@ -6,10 +6,28 @@ Modern OOP is actually not what it was meant to be. Let's call it "mainstream OO
 - mutable objects
 
 You will see later why these are problems. 
-To understand what OOP is, let's define what an object is.
-Let's ask Alan Kay, one of the founders of OOP, what an object is:
+
+First of all let's define what an object is.
+
+It is interesting, that many people who use OOP daily have never thought of what an object actually is.
+
+There are lots of misconceptions about what an object is.
+
+So, the first definition is by Alan Kay who is considered to be a father of OOP.
+
 > I thought of objects being like biological cells and/or individual computers on a network, only able to communicate with messages
 So, the central idea of OOP is messaging.
+
+The second definition is by Uncle Bob Martin:
+
+> “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
+> ~ [Uncle Bob Martin](https://twitter.com/unclebobmartin/status/1107740352516157441)
+
+***So let's conclude what objects should be:***
+
+- something like biological cells and/or individual computers
+- they have behavior
+- they have no visible data
 
 The purposes of MONBLANC principles are:
 - be simple to understand
@@ -96,11 +114,6 @@ Getters/setters allow you to mutate an object's state without an object itself k
 Let's get back to our company and the way its departments communicate.
 
 In fact, every department in a company is a black box.
-
-
-
-> “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
-> ~ [Uncle Bob Martin](https://twitter.com/unclebobmartin/status/1107740352516157441)
 
 If we conclude the quote above we can say that **an object is not a data structure**.
 
