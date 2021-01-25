@@ -16,7 +16,11 @@ The purposes of MONBLANC principles are:
 - be precise and straightforward
 - help to write maintainable OOP code
 
-MONBLANC principles are:
+**Disclaimer**
+
+*All examples are written in pseudo language that is understandable to most programmers who know Java, Python, PHP, Javascript and most modern OOP languages.*
+
+**MONBLANC principles are:**
 
 **M** - [messaging](#messaging)
 
@@ -61,6 +65,10 @@ That's why, getters/setters approach is a hard antipattern, though it is widely 
 > “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
 > ~ [Uncle Bob Martin](https://twitter.com/unclebobmartin/status/1107740352516157441)
 
+If we conclude the quote above we can say that **an object is not a data structure**.
+
+Every object is supposed to have some behavior. 
+
 What are getters and setters for every property of an object?
 
 Yeah, you are right - it is making our data visible to anyone!
@@ -74,3 +82,6 @@ Having a getter and a setter for every property is actually turning our object i
 ## No static methods
 
 ## Composition only
+
+***List of used resources:***
+
