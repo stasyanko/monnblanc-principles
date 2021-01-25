@@ -1,6 +1,11 @@
 # MONBLANC principles for OOP
 
-Modern OOP is actually not what it was meant to be. Let's call it "mainstream OOP". There are lots of problems in that. The main of them are:
+Modern OOP is actually not what it was meant to be. 
+
+Let's call it "mainstream OOP". 
+
+There are lots of problems in that. The main of them are:
+
 - getters/setters (it breaks encapsulation very hard)
 - static methods
 - mutable objects
