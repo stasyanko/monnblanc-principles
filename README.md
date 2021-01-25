@@ -10,6 +10,10 @@ There are lots of problems in that. The main of them are:
 - static methods
 - mutable objects
 
+Some developers even move away from OOP to functional programming as they think that OOP is not good enough as objects are mutable and unpredictable.
+
+But who forbids you to design objects with immutability in mind?
+
 You will see later why these are problems. 
 
 First of all let's define what an object is.
