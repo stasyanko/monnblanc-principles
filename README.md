@@ -4,7 +4,7 @@ SOLID pricinples are great...
 
 But there are some problems with them:
 
-- they sound too academic and are hard to understand for beginners
+- they are too academic and are hard to understand for beginners
 - people in a team of developers often understand them in a different way (even single responsibility principle is often understood in a different manner)
 
 Besides, modern OOP is actually not what it was meant to be. 
@@ -41,7 +41,7 @@ The second definition is by ***Uncle Bob Martin:***
 > “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
 > ~ <a href="https://twitter.com/unclebobmartin/status/1107740352516157441" rel="nofollow" target="_blank">Uncle Bob Martin</a>
 
-***So let's conclude what objects should be:***
+***So let's conclude what objects are:***
 
 - objects are similar to biological cells and/or individual computers
 - objects have behavior
@@ -49,22 +49,21 @@ The second definition is by ***Uncle Bob Martin:***
 
 ***The purposes of MONNBLANC principles are:***
 
-- to be simple to understand
+- to be ***simple*** to understand
 - to be precise and straightforward
-- to be beginner friendly
+- to be ***beginner friendly***
 - to help to write maintainable OOP code
+- to collect main ***OOP antipatters*** in one place
 
 **Disclaimer**
 
 *All examples are written in pseudo language that is understandable to most programmers who know Java, Python, PHP, Javascript and most modern OOP languages.*
 
-*The pronciples are explained as a story of a worker Alan from Jsweety factory.*
+*The pronciples are explained with practical examples.*
 
-*He is a financist in the financial department.*
+*Alan owns a pizzeria and he wants to make online ordering for his pizzeria.*
 
-*Jsweety produces candies and chocolate.*
-
-*We will automate the business processes of Jsweety factory using MONBLANC principles.*
+*We will develop online ordering of pizza using MONNBLANC principles.*
 
 **MONNBLANC principles are:**
 
