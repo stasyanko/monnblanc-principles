@@ -98,8 +98,8 @@ The class with Order looks like this:
 
 ```
 class Order {
-    private string clientFullName;
-    private string clientAddress;
+    private final string clientFullName;
+    private final string clientAddress;
 
     public constructor(
         string clientFullName,
@@ -123,7 +123,7 @@ For storing a new order let's create OrderStorage:
 
 ```
 class OrderStorage {
-    private OrderRepositoryInterface orderRepository;
+    private final OrderRepositoryInterface orderRepository;
 
     public constructor(OrderRepositoryInterface orderRepository) {
         this.orderRepository = orderRepository;
@@ -177,13 +177,116 @@ Once a car was produced in a car fcatory, we can not change its producer, engine
 
 When an HR manager in your company changes your marital status in your personal card, he/she doesn't cross out text with your marital status, in fact an HR creates a new personal card with new data. 
 
+*Let's get back to Alan's pizzeria.*
+
+As you could have noticed, clientFullName and clientAddress properties of Order are marked as final:
+
+```
+private final string clientFullName;
+private final string clientAddress;
+```
+
+It means that we can assign their values only in the constructor which makes them immutable.
+
+To change their value we have to create a new instance of Order.
+
+Why should objects be immutable?
+
+The answer is simple: we can be sure that an object's internal state is not mutated (changed) by other objects only on condition that this object is designed as immutable object.
+
+The Order looks like this:
+
+```
+class Order {
+    private final string clientFullName;
+    private final string clientAddress;
+
+    public constructor(
+        string clientFullName,
+        string clientAddress
+    ) {
+        this.clientFullName = clientFullName;
+        this.clientAddress = clientAddress;
+    }
+
+    public clientFullName(): string {
+        return this.clientFullName;
+    }
+
+    public clientAddress(): string {
+        return this.clientAddress;
+    }
+}
+```
+
+But what if we designed this class like this?
+
+```
+class Order {
+    private string clientFullName;
+    private string clientAddress;
+
+    public constructor(
+        string clientFullName,
+        string clientAddress
+    ) {
+        this.clientFullName = clientFullName;
+        this.clientAddress = clientAddress;
+    }
+
+    public getClientFullName(): string {
+        return this.clientFullName;
+    }
+    
+    public setClientFullName(string clientFullName): Order {
+        this.clientFullName = clientFullName;
+        return this;
+    }
+
+    public getClientAddress(): string {
+        return this.clientAddress;
+    }
+    
+    public setClientAddress(string clientAddress): Order {
+        this.clientAddress = clientAddress;
+        return this;
+    }
+}
+```
+
+In this case we have a getters and a setter for every field and ```clientFullName``` and ```clientAddress``` may be changed easily by any object that **is no supposed to work with Order object**:
+
+```
+var order = new Order('Alan Kay', '909-1/2 E 49th St Los Angeles, California(CA), 90011');
+// a setter for clientAddress is used here 
+// and we can not be sure that Order goes to OrderStorage 
+// with the right internal state
+order.setClientAddress('98168 Carroll Parkways, Apt. 753, 91212-4157, South Penelope, New Mexico, United States');
+
+var orderStorage = new OrderStorage(new OrderRepository());
+orderStorage.store(order);
+``` 
+
+So let's sum up:
+
+- mutable objects cause bugs that are hard to find
+- objects must be designed as immutable to be sure their internal state is not mutated by other objects
+
+The next section of MONNBLANC principles shows you why getters and setters is a severe OOP antipattern.
+
+## No getters and setters
+
+This section is united with [black box object](#black-box-object) section as it is related to the same topic - encapsulation. See [black box object](#black-box-object).
+
+## No static methods
+
+This section is united with [black box object](#black-box-object) section as it is related to the same topic - encapsulation. See [black box object](#black-box-object).
+
+## Black box object
+
 That's why, getters/setters approach is a hard antipattern, though it is widely used today. 
 
 Getters/setters allow you to mutate an object's state without an object itself knowing anything about that.
-
-## No getters and setters
-## No static methods
-## Black box object
 
 Let's get back to our company and the way its departments communicate.
 
