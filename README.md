@@ -284,13 +284,59 @@ This section is united with [black box object](#black-box-object) section as it 
 
 ## Black box object
 
+This section will explain three principles at once:
+
+- N - no getters and setters
+- N - no static methods
+- B - black box object
+
+It is for a reason - all of them concern ***encapsulation***.
+
+Let's unite them in an abbreviation ***NNB*** (No getters and setters, No static methods, Black box object).
+
+Let's rewrite OrderStorage like this:
+
+```
+class OrderStorage {
+    private OrderRepositoryInterface orderRepository;
+    
+    public function getOrderRepository(): OrderRepositoryInterface {
+        return this.orderRepository;
+    }
+    
+    public function setOrderRepository(OrderRepositoryInterface orderRepository): OrderStorage {
+        this.orderRepository = orderRepository;
+        return this.orderRepository;
+    }
+    
+    public static function removeOrder(Order order): bool {
+        // some code to remove an order from database
+    }
+    
+    public function store(Order order): boolean {
+        return this.orderRepository.insert(order);
+    }
+}
+```
+
+Well, maybe from the modern point of view this code is good enough.
+
+*But it is not, it is terrible.*
+
+First, there is a setter and a getter for ```orderRepository```.
+
+We can replace it with anything in runtime.
+
+This fact turns our object into a datastructure without behavior.
+
 That's why, getters/setters approach is a hard antipattern, though it is widely used today. 
 
 Getters/setters allow you to mutate an object's state without an object itself knowing anything about that.
 
-Let's get back to our company and the way its departments communicate.
+Let's remember Uncle's Bob quote from above:
 
-In fact, every department in a company is a black box.
+> “The difference between a data structure and an object is that data structures have visible data and no behavior. Objects have behavior and no visible data.”
+> ~ <a href="https://twitter.com/unclebobmartin/status/1107740352516157441" rel="nofollow" target="_blank">Uncle Bob Martin</a>
 
 If we conclude the quote above we can say that **an object is not a data structure**.
 
@@ -300,7 +346,82 @@ What are getters and setters for every property of an object?
 
 Yeah, you are right - it is making our data visible to anyone!
 
-Having a getter and a setter for every property is actually turning our object into a data structure!
+So, let's get rid of getters/setters and pass ```OrderRepository``` to the constructor of ```OrderStorage```:
+
+```
+class OrderStorage {
+    private OrderRepositoryInterface orderRepository;
+    
+    public constructor(OrderRepositoryInterface orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+    
+    public static function removeOrder(Order order): bool {
+        // some code to remove an order from database
+    }
+    
+    public function store(Order order): boolean {
+        return this.orderRepository.insert(order);
+    }
+}
+```
+
+Awesome! But there is one more problem: a static method ```removeOrder(Order order)```.
+
+Why is it a problem?
+
+Static methods break encapsulation - we can call static methods without creating an instance of ```OrderStorage```.
+
+***Static methods break encapsulation***. Period.
+
+Let's get rid of the static method:
+
+```
+class OrderStorage {
+    private OrderRepositoryInterface orderRepository;
+    
+    public constructor(OrderRepositoryInterface orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+    
+    public function removeOrder(Order order): bool {
+        // some code to remove an order from database
+    }
+    
+    public function store(Order order): boolean {
+        return this.orderRepository.insert(order);
+    }
+}
+```
+
+Good, we have two principles covered from ***NNB***:
+
+- No getters and setters
+- No static methods
+
+One more left - **Black box object**.
+
+Black box object means that objects **must** hide their behavior and data from other objects.
+
+In other words, it is encapsulation.
+
+If you pass all dependencies in the constructor and stop using getters/setters and static methods, your objects are likely to become ***black boxes***!
+
+If you order a pizza online, a pizzeria is a black box for you.
+
+You don't care how and where a pizzeria buys tomatoes, how many cooks there are in their kitchen, what ovens they use.
+
+You care about only one thing: tell them what pizza you want and get this pizza in 30 minutes near your door.
+
+So the same thing should happen when you design your objects: every object must do only things it is supposed to do and other objects should know nothing what this object does under the hood.
+
+So let's sum up:
+
+- getters/setters is a severe atipattern for OOP
+- static methods are an atipattern for OOP
+- every object must be a black box for other objects
+
+The next section of MONNBLANC principles shows you why every object should provide limited set of services.
 
 ## Limited services
 
