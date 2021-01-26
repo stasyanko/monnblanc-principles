@@ -59,7 +59,7 @@ The second definition is by ***Uncle Bob Martin:***
 
 *All examples are written in pseudo language that is understandable to most programmers who know Java, Python, PHP, Javascript and most modern OOP languages.*
 
-*The pronciples are explained with practical examples.*
+*The principles are explained with practical examples.*
 
 *Alan owns a pizzeria and he wants to make online ordering for his pizzeria.*
 
@@ -92,9 +92,9 @@ The second definition is by ***Uncle Bob Martin:***
 
 Objects must be like small computers that talk to each other via messaging.
 
-We see that the HR object has its unique behavior - it accepts a message of WorkerCard type and does something under the hood.
+Let's start designing our system for ordering a pizza online.
 
-The class with Order looks like this:
+To start with, we will make an Order class:
 
 ```
 class Order {
