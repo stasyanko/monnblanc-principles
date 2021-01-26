@@ -437,8 +437,7 @@ But I couldn’t resist the temptation to put in a null reference, simply becaus
 
 ***List of used resources:***
 
-- <a href="https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html" rel="nofollow" target="_blank">Getters/Setters. Evil. Period. [By Yegor Bugayenko]</a>
-- <a href="https://youtu.be/WSgP85kr6eU" rel="nofollow" target="_blank">Why Getters-and-Setters Is An Anti-Pattern? [By Yegor Bugayenko]</a>
-- <a href="https://octoperf.com/blog/2016/04/07/why-objects-must-be-immutable/#modification" rel="nofollow" target="_blank">Why objects must be Immutable [By YJérôme Loisel]</a>
-
-
+- <a href="https://octoperf.com/blog/2016/04/07/why-objects-must-be-immutable/#modification" rel="nofollow">Why objects must be Immutable [By YJérôme Loisel]</a>
+- <a href="https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html" rel="nofollow">Getters/Setters. Evil. Period. [By Yegor Bugayenko]</a>
+- <a href="https://youtu.be/GMrjuuczZkQ" rel="nofollow">Yegor Bugayenko - What's Wrong with Object-Oriented Programming?
+</a>
