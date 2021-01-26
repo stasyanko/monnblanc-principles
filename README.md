@@ -258,9 +258,9 @@ In this case we have a getters and a setter for every field and ```clientFullNam
 
 ```
 var order = new Order('Alan Kay', '909-1/2 E 49th St Los Angeles, California(CA), 90011');
-// a setter for clientAddress is used here 
-// and we can not be sure that Order goes to OrderStorage 
-// with the right internal state
+// !!! a setter for clientAddress is used here
+// !!! and we can not be sure that Order goes to OrderStorage 
+// !!! with the right internal state
 order.setClientAddress('98168 Carroll Parkways, Apt. 753, 91212-4157, South Penelope, New Mexico, United States');
 
 var orderStorage = new OrderStorage(new OrderRepository());
