@@ -53,7 +53,7 @@ The second definition is by ***Uncle Bob Martin:***
 - to be precise and straightforward
 - to be ***beginner friendly***
 - to help to write maintainable OOP code
-- to collect main ***OOP antipatters*** in one place
+- to collect main ***OOP antipatterns*** in one place
 
 **Disclaimer**
 
@@ -91,75 +91,6 @@ The second definition is by ***Uncle Bob Martin:***
 > ~ Alan Kay
 
 Objects must be like small computers that talk to each other via messaging.
-
-Imagine, that you work in a company's accounting department. 
-
-Alan got married recently and he needs to change data in his personal card of a worker. 
-
-This personal card is stored in an HR (human resources) department. 
-
-How does he do it? 
-
-He goes to a room with a filing cabinet and changes his marital status on his own?
-
-Nope. 
-
-He just notifies the HR department on that and only this departmant has "write" access to a filing cabinet with his personal card.
-
-<p align="center">
-  <img src="/assets/filing-cabinet.png" width="256" title="Filing cabinet">
-</p>
-
-This is the code for our worker's card:
-
-```
-class WorkerCard {
-    private name: string;
-    private secondName: string;
-    private age: integer;
-    private isMarried: boolean;
-
-    constructor(
-        name: string,
-        secondName: string,
-        age: integer,
-        isMarried: boolean
-    ) {
-        this.name = name;
-        this.secondName = secondName;
-        this.age = age;
-        this.isMarried = isMarried;
-    }
-
-    public function name(): string {
-        return this.name;
-    }
-
-    public function secondName(): string {
-        return this.secondName;
-    }
-
-    public function age(): integer {
-        return this.age;
-    }
-
-    public function isMarried(): boolean {
-        return this.isMarried;
-    }
-}
-```
-
-This is how we send a message about Alan's marital status to the HR department of Jsweety company:
-
-```
-// the fourth parameter here is a marital status
-$workerData = new WorkerCard('Alan', 'May', 41, true);
-
-$hr = new HR();
-$hr.updateWorkerData($workerData);
-```
-
-Calling a method updateWorkerData() of HR object is actually passing a message.
 
 We see that the HR object has its unique behavior - it accepts a message of WorkerCard type and does something under the hood.
 
