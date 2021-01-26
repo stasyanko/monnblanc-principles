@@ -25,8 +25,6 @@ Some developers even move away from OOP to functional programming as they think 
 
 But who forbids you to design objects with immutability in mind?
 
-You will see later why these are problems. 
-
 First of all let's define ***what an object is.***
 
 It is interesting, that many people who use OOP daily have never thought of what an object actually is.
