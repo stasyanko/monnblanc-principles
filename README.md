@@ -7,6 +7,8 @@ But there are some problems with them:
 - they are too academic and are hard to understand for beginners
 - people in a team of developers often understand them in a different way (even single responsibility principle is often understood in a different manner)
 
+Also let me say at once: MONNBLANC is not a replacement of SOLID principles, it is an addition to them.
+
 Besides, modern OOP is actually not what it was meant to be. 
 
 Let's call it "mainstream OOP". 
