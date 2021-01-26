@@ -171,7 +171,7 @@ Programmers model real life objects with code.
 
 The main idea of OOP is - build an object in its constructor and use it. 
 
-We can not change theinternal organization of any real life object. 
+We can not change the internal organization of any real life object. 
 
 Once a car was produced in a car fcatory, we can not change its producer, engine, body, color while we drive it.
 
