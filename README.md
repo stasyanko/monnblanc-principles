@@ -94,75 +94,74 @@ Objects must be like small computers that talk to each other via messaging.
 
 We see that the HR object has its unique behavior - it accepts a message of WorkerCard type and does something under the hood.
 
-Moreover, it is good if updateWorkerData() method could notify other objects that it updated worker data by emitting an event 'workerDataUpdated'.
-
-It may be done like this:
+The class with Order looks like this:
 
 ```
-class HR {
-    // here some props of the class we don't care about now
-    
-    public function updateWorkerData(WorkerData $workerData): boolean {
-        // here we update a worker's data, e.g. updating it in a database
-        // ...
-        
-        // eventBus is a class injected in HR's constructor
-        // which is able to notify other objects on some events
-        this.eventBus.emit('workerDataUpdated', $workerData);
+class Order {
+    private string clientFullName;
+    private string clientAddress;
+
+    public constructor(
+        string clientFullName,
+        string clientAddress
+    ) {
+        this.clientFullName = clientFullName;
+        this.clientAddress = clientAddress;
+    }
+
+    public clientFullName(): string {
+        return this.clientFullName;
+    }
+
+    public clientAddress(): string {
+        return this.clientAddress;
     }
 }
 ```
+
+For storing a new order let's create OrderStorage:
+
+```
+class OrderStorage {
+    private OrderRepositoryInterface orderRepository;
+
+    public constructor(OrderRepositoryInterface orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
+    public function store(Order order): boolean {
+        return this.orderRepository.insert(order);
+    }
+}
+```
+
+To store a new Order we will write this code:
+
+```
+var order = new Order('Alan Kay', '909-1/2 E 49th St Los Angeles, California(CA), 90011');
+var orderStorage = new OrderStorage(new OrderRepository());
+
+orderStorage.store(order);
+```
+
+In terms of most languages (like Java, Javascript, PHP etc) sending a message to an object means calling a proper method which prodives some service to another object.
+
+Calling store() method of OrderStorage is actually sending a message to this object to get a service of storing a new Order.
+
+But you could say: "I already call methods of different objects. ***Why should I care about messaging?***"
+
+Well, calling a method of an object is not always equal to messaging.
+    
+To be able to call a method call an act of messaging one principle must be kept for designing an object:
+
+*"Every object should be a specialist only in its services and should know nothing of how things work under the hood in other objects"*
+
+You will understand it better in the next sections of MONNBLANC principles.
 
 So let's sum up:
 
 - objects should communicate with each other by sending messages to each other
-- in terms of modern OOP languages sending messages may mean two things:
-  - calling a method of an object
-  - sending an event if something happens (like in the example above with 'workerDataUpdated' event)
-- the purpose of sending a message to another object is to get some service from that object (even calling a method name() of a WorkerCard object is actually sending a message to the WorkerCard object to get a service from this)
-
-You can say: "I already call methods of different objects in my code so why should I care?"
-
-But the main point here is that every object should provide only services it is supposed to.
-
-We can hardly say that we send a message to HR object if this object has public data that can be changed by any other object without HR conrolling this process.
-
-This situation can not be called 'message passing':
-
-```
-class HR {
-    public workerRepository: WorkerRepository;
-    
-    // here some props of the class we don't care about now
-    
-    public function updateWorkerDataInDatabse(WorkerData $workerData, $databasePassword: string): boolean {
-        this.workerRepository.updateWorkerData($workerData);
-    }
-}
-```
-
-Yeah, the method updateWorkerDataInDatabse() updates a worker's data too.
-
-But other objects will know too much about how this work in HR object and it can hardly be called behavior as every object that calls updateWorkerDataInDatabse() must know databasePassword.
-
-**One more example:** you wanna order a pizza.
-
-You call a local pizzeria.
-
-What do you need to do to get a pizza?
-
-You need to pass a message to a pizzeria: 
-
-"I want one pizza with tomatoes and cheese"
-
-That's it.
-
-You don't tell the pizzeria where they should buy products, how long to cook it, how to hire cooks.
-
-You just send a message: "I want a pizza"
-
-And the supposed behavior of the pizzeria is to cook a pizza.
-
+- in terms of modern OOP languages sending messages simply means calling a method of an object to get some service from it
 
 ## Object immutability
 
