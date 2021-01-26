@@ -53,7 +53,7 @@ The second definition is by ***Uncle Bob Martin:***
 - to be precise and straightforward
 - to be ***beginner friendly***
 - to help to write maintainable OOP code
-- to collect main ***OOP antipatterns*** in one place
+- to collect main ***OOP antipatterns*** in one place to avoid them
 
 **Disclaimer**
 
