@@ -20,6 +20,7 @@ The main of them are:
 - getters/setters (it breaks encapsulation very hard)
 - static methods
 - mutable objects
+- inheritance
 
 Some developers even move away from OOP to functional programming as they think that OOP is not good enough as objects are mutable and unpredictable.
 
