@@ -471,7 +471,7 @@ But I couldn’t resist the temptation to put in a null reference, simply becaus
 
 Use composition only when building OOP systems, don't use inheritance.
 
-Inheritance is actually anti-OOP concept and there are actually two truly OOP concepts:
+Inheritance is actually an anti-OOP concept and there are only two truly OOP concepts:
 
 - encapsulation
 - polymorphism
