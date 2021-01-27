@@ -61,11 +61,11 @@ The second definition is by ***Uncle Bob Martin:***
 
 *The principles are explained with practical examples.*
 
-*Alan owns a pizzeria and he wants to make online ordering for his pizzeria.*
+*Alan owns a pizzeria and he wants to make online ordering for this.*
 
 *We will develop online ordering of pizza using MONNBLANC principles.*
 
-**MONNBLANC principles are:**
+## MONNBLANC principles are:
 
 **M** - [messaging](#messaging)
 
@@ -425,7 +425,41 @@ The next section of MONNBLANC principles shows you why every object should provi
 
 ## Limited services
 
+Every object should provide a limited set of services according to its responsibility.
+
+Let's introduce an interface for ```OrderStorage``` and name it ```OrderStorageInterface```.
+
+```
+interface OrderStorageInterface {
+    public function removeOrder(Order order): bool;
+    public function store(Order order): boolean;
+    public function update(Order order): boolean;
+}
+```
+
+This principle is very simple - ```OrderStorage``` implements ```OrderStorageInterface``` and OrderStorage provides a limited set of services:
+
+- removing an order
+- storing an order
+- updating an order
+
+If we add a method ```sendEmailToAdmin(string $email): bool``` it will break this principle as ```OrderStorage``` should do what it is supposed to do: to manage orders in a storage.
+
+Let me show a tip for this principle: ***when you design objects, imagine you are a manager in a company's department.***
+
+There are 10 workers and you need to assign each of them what they will do.
+
+The same thing applies to objects: assign each of them what they will do and never allow any of them do what they are not supposed to.
+
+So let's sum up:
+
+- every object should provide a limited set of services according to its responsibility
+
+The next section of MONNBLANC principles claims: every object should depend on abstractions only.
+
 ## Abstract dependencies
+
+Every object should depend on abstractions instead of concrete implementations.
 
 ## No null
 
@@ -434,6 +468,8 @@ But I couldn’t resist the temptation to put in a null reference, simply becaus
 > ~ Tony Hoare, inventor of ALGOL W.
 
 ## Composition only
+
+Use composition only when building OOP systems, don't use inheritance.
 
 ***List of used resources:***
 
