@@ -471,6 +471,34 @@ But I couldn’t resist the temptation to put in a null reference, simply becaus
 
 Use composition only when building OOP systems, don't use inheritance.
 
+Inheritance is actually anti-OOP concept and there are actually two truly OOP concepts:
+
+- encapsulation
+- polymorphism
+
+Imagine ```OrderStorage``` extends (inherits from) ```AbstrctStorage```.
+
+```AbstrctStorage``` extends (inherits from) ```DatabaseStorage```.
+
+```DatabaseStorage``` extends (inherits from) ```DatabaseConnector```.
+
+Seems to be fine from the point of view of '(modern) mainstream OOP' design.
+
+Now imagine ***three more classes*** extend (inherit from) ```AbstrctStorage```.
+
+And now we decide to change the behavior in the middle of this chain in ```DatabaseConnector``` class.
+
+It will influence the behavior of all four classes.
+
+But are you sure you want to change the behavior of every class?
+
+So, it is much better to use dependency injection (which is a compositional way of designing objects) to allow your objects to get access to other objects' functionality.
+
+So let's sum up:
+
+- use composition only to design objects
+- inheritance is not an OOP concept
+
 ***List of used resources:***
 
 - <a href="https://octoperf.com/blog/2016/04/07/why-objects-must-be-immutable" rel="nofollow">Why objects must be Immutable [By YJérôme Loisel]</a>
