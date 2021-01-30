@@ -375,7 +375,7 @@ Static methods break encapsulation - we can call static methods without creating
 
 ***Static methods break encapsulation***. Period.
 
-Let's get rid of the static method:
+Let's get rid of the static method and make nonstatic:
 
 ```
 class OrderStorage {
@@ -461,6 +461,38 @@ The next section of MONNBLANC principles claims: every object should depend on a
 ## Abstract dependencies
 
 Every object should depend on abstractions instead of concrete implementations.
+
+This principle is pretty straightforward: if your objects depend on abstractions it makes them very portable and you can use them in other systems easily.
+
+Abstractions are interfaces in terms of modern languages.
+
+```OrderStorage``` depends on ```OrderRepositoryInterface``` which makes ```OrderStorage``` very portable as you can replace ```OrderRepositoryInterface``` with any implementation:
+
+```
+class OrderStorage {
+    private OrderRepositoryInterface orderRepository;
+    
+    public constructor(OrderRepositoryInterface orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+    
+    public function removeOrder(Order order): bool {
+        // some code to remove an order from database
+    }
+    
+    public function store(Order order): boolean {
+        return this.orderRepository.insert(order);
+    }
+}
+```
+
+The implementation of ```OrderRepositoryInterface``` may store data in MySQL, file system, MongoDB or any other storage.
+
+So let's sum up:
+
+- every object should depend on abstractions only (interfaces)
+
+The next section of MONNBLANC principles claims: ```null``` can not be used in OOP systems.
 
 ## No null
 
