@@ -110,11 +110,11 @@ class Order {
         this.clientAddress = clientAddress;
     }
 
-    public clientFullName(): string {
+    public function clientFullName(): string {
         return this.clientFullName;
     }
 
-    public clientAddress(): string {
+    public function clientAddress(): string {
         return this.clientAddress;
     }
 }
@@ -210,11 +210,11 @@ class Order {
         this.clientAddress = clientAddress;
     }
 
-    public clientFullName(): string {
+    public function  clientFullName(): string {
         return this.clientFullName;
     }
 
-    public clientAddress(): string {
+    public function clientAddress(): string {
         return this.clientAddress;
     }
 }
@@ -499,6 +499,107 @@ The next section of MONNBLANC principles claims: ```null``` can not be used in O
 > “I call it my billion-dollar mistake…At that time, I was designing the first comprehensive type system for references in an object-oriented language. My goal was to ensure that all use of references should be absolutely safe, with checking performed automatically by the compiler.
 But I couldn’t resist the temptation to put in a null reference, simply because it was so easy to implement. This has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years.”
 > ~ Tony Hoare, inventor of ALGOL W.
+
+Tony Hoare is considered to be the creator of ```null``` and he calls it a ***billion-dollar mistake***.
+
+This principle is pretty simple too: never use null in OOP systems.
+
+What problems can ```null``` cause?
+
+Let's use ```null``` in ```Order```:
+
+```
+class Order {
+    private final string clientFullName;
+    private final string clientAddress;
+
+    public constructor(
+        string clientFullName,
+        // clientAddress can be eithe null or string
+        ?string clientAddress = null
+    ) {
+        this.clientFullName = clientFullName;
+        this.clientAddress = clientAddress;
+    }
+
+    public function clientFullName(): string {
+        return this.clientFullName;
+    }
+
+    public function clientAddress(): string {
+        return this.clientAddress;
+    }
+}
+```
+
+If we set ```clientAddress``` to ```null``` it can mean a few things:
+
+- ```clientAddress``` is empty
+- a client does not have an address
+- we do not require from clients  to enter their address
+
+So, the first problem of ```null``` - ***it does not model business logic properly***.
+
+The second problem - you have to check nullable properties of an object as it can cause ```NullPointerException```.
+
+What is the replacement of ```null```?
+
+***NullObject pattern*** to the rescue!
+
+For the ```clientAddress``` property let's create ```ClientAddressInterface```:
+
+```
+interface ClientAddressInterface {
+    public function value(): string;
+    public function isNull(): boolean;
+}
+```
+Now we change the type of ```clientAddress``` to ```ClientAddressInterface```:
+
+```
+class Order {
+    private final string clientFullName;
+    private final ClientAddressInterface clientAddress;
+
+    public constructor(
+        string clientFullName,
+        ClientAddressInterface clientAddress
+    ) {
+        this.clientFullName = clientFullName;
+        this.clientAddress = clientAddress;
+    }
+
+    public function clientFullName(): string {
+        return this.clientFullName;
+    }
+
+    public function clientAddress(): ClientAddressInterface {
+        return this.clientAddress;
+    }
+}
+```
+So in the case of empty address we can pass this class to ```Order```:
+
+```
+class EmptyClientAddress implements ClientAddressInterface {
+    public function value(): string {
+        return '';
+    }
+
+    public function isNull(): boolean {
+        return true;
+    }
+}
+```
+
+Now we can easily check if ```clientAddress``` is null (of empty) by calling the ```isNull()``` method and we will never get ```NullPointerException```!
+
+So let's sum up:
+
+- never use ```null``` in OOP systems
+- for nullable types use NullObject pattern
+
+The next section of MONNBLANC principles claims: use composition instead of inheritance.
 
 ## Composition only
 
