@@ -56,6 +56,8 @@ The second definition is by ***Uncle Bob Martin:***
 - to help to write maintainable OOP code
 - to collect main ***OOP antipatterns*** in one place to avoid them
 
+***The main problem we should solve is: what the design of objects should be if the big idea of OOP is messaging***. 
+
 **Disclaimer**
 
 *All examples are written in pseudo language that is understandable to most programmers who know Java, Python, PHP, Javascript and most modern OOP languages.*
