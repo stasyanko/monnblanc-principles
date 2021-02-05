@@ -612,15 +612,15 @@ Inheritance is actually an anti-OOP concept and there are only two truly OOP con
 - encapsulation
 - polymorphism
 
-Imagine ```OrderStorage``` extends (inherits from) ```AbstrctStorage```.
+Imagine ```OrderStorage``` extends (inherits from) ```AbstractStorage```.
 
-```AbstrctStorage``` extends (inherits from) ```DatabaseStorage```.
+```AbstractStorage``` extends (inherits from) ```DatabaseStorage```.
 
 ```DatabaseStorage``` extends (inherits from) ```DatabaseConnector```.
 
 Seems to be fine from the point of view of '(modern) mainstream OOP' design.
 
-Now imagine ***three more classes*** extend (inherit from) ```AbstrctStorage```.
+Now imagine ***three more classes*** extend (inherit from) ```AbstractStorage```.
 
 And now we decide to change the behavior in the middle of this chain in ```DatabaseConnector``` class.
 
